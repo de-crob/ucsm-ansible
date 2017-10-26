@@ -20,16 +20,29 @@ def touch(fname, times=None):
     with open(fname, 'a'):
         os.utime(fname, times)
 
+#Let's make this recursive.
+#Base Case #1 - In Empty Folder
+#Base Case #2 - Has Only Files
 
+#Next Step #1 - Has Only Folders
+#Next Step #2 - Has Folders and Files
 def copy_files(src, dest):
     import shutil
-    src_files = os.listdir(src)
-    for file_name in src_files:
-        src_file = os.path.join(src, file_name)
-        dst_file = os.path.join(dest, file_name)
-        if (os.path.isfile(src_file)):
-            print(src_file, "===>", dst_file)
+	
+	src_ls = os.listdir(src)
+	#The base case 1 is handled with a for loop
+	#Because an empty dir returns []
+	for ls_item in src_ls:
+		src_file = os.path.join(src, ls_item)
+		dst_file = os.path.join(dest, ls_item)
+		if os.path.isfile(src_file):
+			print(src_file, "===>", dst_file)
+			
             shutil.copy(src_file, dst_file)
+		elif os.path.isdir(src_file):
+			os.makedirs(dst_file)
+			copy_files(src_file, dst_file)
+
 
 # Create the directory for the main module under extras/server/cisco repo
 if not os.path.isdir(ucs_path):
