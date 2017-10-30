@@ -30,81 +30,81 @@ options:
     ls_server_dn:
         description: ls_server_dn
         required: true
-	adaptor_profile_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	addr:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	admin_cdn_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	admin_host_port:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['1', '2', 'ANY', 'NONE']
-	admin_vcon:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['1', '2', '3', '4', 'any]
-	cdn_prop_in_sync:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['yes', 'no', 'true', 'false']
-	cdn_source:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['user-defined', 'vnic-name']
-	ident_pool_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	max_data_field_size:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	nw_templ_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	order:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	pers_bind:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['enabled', 'disabled']
-	pers_bind_clear:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['yes', 'no', 'true', 'false']
-	pin_to_group_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	qos_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	stats_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	switch_id:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['A', 'B', 'A-B', 'B-A', 'NONE']
+    adaptor_profile_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    addr:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    admin_cdn_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    admin_host_port:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['1', '2', 'ANY', 'NONE']
+    admin_vcon:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['1', '2', '3', '4', 'any]
+    cdn_prop_in_sync:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['yes', 'no', 'true', 'false']
+    cdn_source:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['user-defined', 'vnic-name']
+    ident_pool_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    max_data_field_size:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    nw_templ_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    order:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    pers_bind:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['enabled', 'disabled']
+    pers_bind_clear:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['yes', 'no', 'true', 'false']
+    pin_to_group_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    qos_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    stats_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    switch_id:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['A', 'B', 'A-B', 'B-A', 'NONE']
 requirements: ['ucsmsdk', 'ucsm_apis']
 author: "Cisco Systems Inc(ucs-python@cisco.com)"
 '''
@@ -115,8 +115,8 @@ EXAMPLES = '''
   vnic_fc_module:
     name: "vnicF-test"
     ls_server_dn: "org-root/ls-spt-test"
-	max_data_field_size: "2048"
-	switch_id: "B"
+    max_data_field_size: "2048"
+    switch_id: "B"
     state: "present"
     ucs_ip: "192.168.1.1"
     ucs_username: "admin"
@@ -126,25 +126,25 @@ EXAMPLES = '''
 #Arguments object for the Managed Object in question
 def _argument_mo():
     return dict(
-				name=dict(required=True, type='str'),
-				ls_server_dn=dict(required=True, type='str'),
-				adaptor_profile_name=dict(type='str'),
-				addr=dict(type='str', default="derived"),
-				admin_cdn_name=dict(type="str"),
-				admin_host_port=dict(type='str', choices=['1','2','ANY','NONE'], default="ANY"),
-				admin_vcon=dict(type='str', choices=['1', '2', '3', '4', 'any'], default="any"),
-				cdn_prop_in_sync=dict(type='str', choices=['yes', 'no', 'true', 'false']),
-				cdn_source=dict(type='str', choices=['user-defined','vnic-name']),
-				ident_pool_name=dict(type='str'),
-				max_data_field_size=dict(type='str'),
-				nw_templ_name=dict(type='str'),
-				order=dict(type='str'),
-				pers_bindr=dict(type='str', choices=['enabled', 'disabled'], default="disabled"),
-				pers_bind_clear=dict(type='str', choices=['yes', 'no', 'true', 'false'], default="no"),
-				pin_to_group_name=dict(type='str'),
-				qos_policy_name=dict(type='str'),
-				stats_policy_name=dict(type='str'),
-				switch_id=dict(type='str',choices=['A', 'B', 'A-B', 'B-A', 'NONE'])
+                name=dict(required=True, type='str'),
+                ls_server_dn=dict(required=True, type='str'),
+                adaptor_profile_name=dict(type='str'),
+                addr=dict(type='str', default="derived"),
+                admin_cdn_name=dict(type="str"),
+                admin_host_port=dict(type='str', choices=['1','2','ANY','NONE'], default="ANY"),
+                admin_vcon=dict(type='str', choices=['1', '2', '3', '4', 'any'], default="any"),
+                cdn_prop_in_sync=dict(type='str', choices=['yes', 'no', 'true', 'false']),
+                cdn_source=dict(type='str', choices=['user-defined','vnic-name']),
+                ident_pool_name=dict(type='str'),
+                max_data_field_size=dict(type='str'),
+                nw_templ_name=dict(type='str'),
+                order=dict(type='str'),
+                pers_bindr=dict(type='str', choices=['enabled', 'disabled'], default="disabled"),
+                pers_bind_clear=dict(type='str', choices=['yes', 'no', 'true', 'false'], default="no"),
+                pin_to_group_name=dict(type='str'),
+                qos_policy_name=dict(type='str'),
+                stats_policy_name=dict(type='str'),
+                switch_id=dict(type='str',choices=['A', 'B', 'A-B', 'B-A', 'NONE'])
     )
 
 #Arguments object unique to the Ansible Module
@@ -194,9 +194,9 @@ def _get_mo_params(params):
 
 
 def setup_vnic_fc(server, module):
-	from ucsm_apis.server_profile.vnic_fc import vnic_fc_create
-    from ucsm_apis.server_profile.vnic_fc import vnic_fc_exists
-    from ucsm_apis.server_profile.vnic_fc import vnic_fc_delete
+    from ucsm_apis.service_profile.vnic_fc import vnic_fc_create
+    from ucsm_apis.service_profile.vnic_fc import vnic_fc_exists
+    from ucsm_apis.service_profile.vnic_fc import vnic_fc_delete
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)

@@ -26,16 +26,16 @@ options:
     ls_server_dn:
         description: ls_server_dn
         required: true
-	state:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['admin-down', 'admin-up', 'bmc-reset-immediate', 
-				  'bmc-reset-wait', 'cmos-reset-immediate',
-				  'cycle-immediate', 'cycle-wait', 'diagonostic-interrupt', 
-				  'down', 'hard-reset-immediate', 'hard-reset-wait', 
-				  'ipmi-reset', 'kvm-reset', 'soft-shut-down', 
-				  'soft-shut-down-only', 'up']
+    state:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['admin-down', 'admin-up', 'bmc-reset-immediate', 
+                  'bmc-reset-wait', 'cmos-reset-immediate',
+                  'cycle-immediate', 'cycle-wait', 'diagonostic-interrupt', 
+                  'down', 'hard-reset-immediate', 'hard-reset-wait', 
+                  'ipmi-reset', 'kvm-reset', 'soft-shut-down', 
+                  'soft-shut-down-only', 'up']
 requirements: ['ucsmsdk', 'ucsm_apis']
 author: "Cisco Systems Inc(ucs-python@cisco.com)"
 '''
@@ -45,7 +45,7 @@ EXAMPLES = '''
 - name:
   ls_power_module:
     ls_server_dn: "org-root/ls-spt-test"
-	state: 'up'
+    state: 'up'
     ansi_state: "present"
     ucs_ip: "192.168.1.1"
     ucs_username: "admin"
@@ -55,16 +55,16 @@ EXAMPLES = '''
 #Arguments object for the Managed Object in question
 def _argument_mo():
     return dict(
-				ls_server_dn=dict(required=True, type='str'),
-				state=dict(type='str')
+                ls_server_dn=dict(required=True, type='str'),
+                state=dict(type='str')
     )
 
 #Arguments object unique to the Ansible Module
 def _argument_custom():
     return dict(
         ansi_state=dict(default="present",
-						choices=['present', 'absent'],
-						type='str'),
+                        choices=['present', 'absent'],
+                        type='str'),
     )
 
 #Arguments object related to the UcsHandle
@@ -106,9 +106,9 @@ def _get_mo_params(params):
 
 
 def setup_ls_power(server, module):
-	from ucsm_apis.server_profile.ls_power import ls_power_create
-    from ucsm_apis.server_profile.ls_power import ls_power_exists
-    from ucsm_apis.server_profile.ls_power import ls_power_delete
+    from ucsm_apis.service_profile.ls_power import ls_power_create
+    from ucsm_apis.service_profile.ls_power import ls_power_exists
+    from ucsm_apis.service_profile.ls_power import ls_power_delete
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)

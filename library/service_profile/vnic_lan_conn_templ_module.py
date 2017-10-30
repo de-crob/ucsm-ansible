@@ -30,48 +30,48 @@ options:
     obj_dn:
         description: obj_dn
         required: true
-	admin_cdn_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	cdn_source:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['user-defined', 'vnic-name']
-	ident_pool_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	mtu:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	nw_ctrl_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	peer_redundancy_templ_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	pin_to_group_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	qos_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	stats_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	switch_id:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['A', 'B', 'A-B', 'B-A', 'NONE']
+    admin_cdn_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    cdn_source:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['user-defined', 'vnic-name']
+    ident_pool_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    mtu:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    nw_ctrl_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    peer_redundancy_templ_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    pin_to_group_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    qos_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    stats_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    switch_id:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['A', 'B', 'A-B', 'B-A', 'NONE']
 requirements: ['ucsmsdk', 'ucsm_apis']
 author: "Cisco Systems Inc(ucs-python@cisco.com)"
 '''
@@ -82,8 +82,8 @@ EXAMPLES = '''
   vnic_ether_module:
     name: "vnicE-test"
     ls_server_dn: "org-root/ls-spt-test"
-	mtu: "9000"
-	switch_id: "B"
+    mtu: "9000"
+    switch_id: "B"
     state: "present"
     ucs_ip: "192.168.1.1"
     ucs_username: "admin"
@@ -93,23 +93,23 @@ EXAMPLES = '''
 #Arguments object for the Managed Object in question
 def _argument_mo():
     return dict(
-				name=dict(required=True, type='str'),
-				obj_dn=dict(type='str', default="org-root"),
-				admin_cdn_name=dict(type='str'),
-				cdn_source=dict(type='str', choices=['user-defined','vnic-name']),
-				descr=dict(type="str"),
-				ident_pool_name=dict(type='str'),
-				mtu=dict(type='str'),
-				nw_ctrl_policy_name=dict(type='str'),
-				peer_redundancy_templ_name=dict(type='str'),
-				policy_owner=dict(type="str", choices=['local', 'pending-policy', 'policy']),
-				pin_to_group_name=dict(type='str'),
-				qos_policy_name=dict(type='str'),
-				redundancy_pair_type=dict(type='str', choices=['none', 'primary', 'secondary']),
-				stats_policy_name=dict(type='str'),
-				switch_id=dict(type='str',choices=['A', 'B', 'A-B', 'B-A', 'NONE'])
-				target=dict(type='str'),
-				templ_type=dict(type='str', choices=['initial-template', 'updating-template'])
+                name=dict(required=True, type='str'),
+                obj_dn=dict(type='str', default="org-root"),
+                admin_cdn_name=dict(type='str'),
+                cdn_source=dict(type='str', choices=['user-defined','vnic-name']),
+                descr=dict(type="str"),
+                ident_pool_name=dict(type='str'),
+                mtu=dict(type='str'),
+                nw_ctrl_policy_name=dict(type='str'),
+                peer_redundancy_templ_name=dict(type='str'),
+                policy_owner=dict(type="str", choices=['local', 'pending-policy', 'policy']),
+                pin_to_group_name=dict(type='str'),
+                qos_policy_name=dict(type='str'),
+                redundancy_pair_type=dict(type='str', choices=['none', 'primary', 'secondary']),
+                stats_policy_name=dict(type='str'),
+                switch_id=dict(type='str',choices=['A', 'B', 'A-B', 'B-A', 'NONE'])
+                target=dict(type='str'),
+                templ_type=dict(type='str', choices=['initial-template', 'updating-template'])
     )
 
 #Arguments object unique to the Ansible Module
@@ -159,9 +159,9 @@ def _get_mo_params(params):
 
 
 def setup_vnic_lan_conn_templ(server, module):
-	from ucsm_apis.server_profile.vnic_lan_conn_templ import vnic_lan_conn_templ_create
-    from ucsm_apis.server_profile.vnic_lan_conn_templ import vnic_lan_conn_templ_exists
-    from ucsm_apis.server_profile.vnic_lan_conn_templ import vnic_lan_conn_templ_delete
+    from ucsm_apis.service_profile.vnic_lan_conn_templ import vnic_lan_conn_templ_create
+    from ucsm_apis.service_profile.vnic_lan_conn_templ import vnic_lan_conn_templ_exists
+    from ucsm_apis.service_profile.vnic_lan_conn_templ import vnic_lan_conn_templ_delete
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)

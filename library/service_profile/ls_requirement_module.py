@@ -26,18 +26,18 @@ options:
     ls_server_dn:
         description: ls_server_dn
         required: true
-	name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	qualifier:
-		version_added: "1.0(1e)"
-		description:
-		required: false	
-	restrict_migration:
-		version_added: "1.0(1e)"
-		description:
-		required: false	
+    name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    qualifier:
+        version_added: "1.0(1e)"
+        description:
+        required: false 
+    restrict_migration:
+        version_added: "1.0(1e)"
+        description:
+        required: false 
 requirements: ['ucsmsdk', 'ucsm_apis']
 author: "Cisco Systems Inc(ucs-python@cisco.com)"
 '''
@@ -48,7 +48,7 @@ EXAMPLES = '''
   ls_requirement_module:
     name: "vnicE-test"
     ls_server_dn: "org-root/ls-spt-test"
-	name: "test"
+    name: "test"
     state: "present"
     ucs_ip: "192.168.1.1"
     ucs_username: "admin"
@@ -58,10 +58,10 @@ EXAMPLES = '''
 #Arguments object for the Managed Object in question
 def _argument_mo():
     return dict(
-				ls_server_dn=dict(required=True, type='str'),
-				name=dict(type='str'),
-				qualifier=dict(type='str'),
-				restrict_migration=dict(type='str')
+                ls_server_dn=dict(required=True, type='str'),
+                name=dict(type='str'),
+                qualifier=dict(type='str'),
+                restrict_migration=dict(type='str')
     )
 
 #Arguments object unique to the Ansible Module
@@ -111,9 +111,9 @@ def _get_mo_params(params):
 
 
 def setup_ls_requirement(server, module):
-	from ucsm_apis.server_profile.ls_requirement import ls_requirement_create
-    from ucsm_apis.server_profile.ls_requirement import ls_requirement_exists
-    from ucsm_apis.server_profile.ls_requirement import ls_requirement_delete
+    from ucsm_apis.service_profile.ls_requirement import ls_requirement_create
+    from ucsm_apis.service_profile.ls_requirement import ls_requirement_exists
+    from ucsm_apis.service_profile.ls_requirement import ls_requirement_delete
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)

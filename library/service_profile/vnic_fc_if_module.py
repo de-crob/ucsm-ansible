@@ -30,7 +30,7 @@ options:
     vnic_fc_dn:
         description: ls_server_dn
         required: true
-	
+    
 requirements: ['ucsmsdk', 'ucsm_apis']
 author: "Cisco Systems Inc(ucs-python@cisco.com)"
 '''
@@ -49,8 +49,8 @@ EXAMPLES = '''
 #Arguments object for the Managed Object in question
 def _argument_mo():
     return dict(
-				name=dict(required=True, type='str'),
-				vnic_fc_dn=dict(required=True, type='str')
+                name=dict(required=True, type='str'),
+                vnic_fc_dn=dict(required=True, type='str')
     )
 
 #Arguments object unique to the Ansible Module
@@ -100,9 +100,9 @@ def _get_mo_params(params):
 
 
 def setup_vnic_fc_if(server, module):
-	from ucsm_apis.server_profile.vnic_fc import vnic_fc_if_create
-    from ucsm_apis.server_profile.vnic_fc import vnic_fc_if_exists
-    from ucsm_apis.server_profile.vnic_fc import vnic_fc_if_delete
+    from ucsm_apis.service_profile.vnic_fc import vnic_fc_if_create
+    from ucsm_apis.service_profile.vnic_fc import vnic_fc_if_exists
+    from ucsm_apis.service_profile.vnic_fc import vnic_fc_if_delete
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)

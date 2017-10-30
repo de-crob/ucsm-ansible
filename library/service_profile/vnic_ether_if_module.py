@@ -30,11 +30,11 @@ options:
     vnic_ether_dn:
         description: ls_server_dn
         required: false
-	default_net:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['yes', 'no', 'true', 'false']
+    default_net:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['yes', 'no', 'true', 'false']
 requirements: ['ucsmsdk', 'ucsm_apis']
 author: "Cisco Systems Inc(ucs-python@cisco.com)"
 '''
@@ -44,7 +44,7 @@ EXAMPLES = '''
 - name:
   vnic_ether_if_module:
     name: "vnicEIF-test"
-	default_net: true
+    default_net: true
     state: "present"
     ucs_ip: "192.168.1.1"
     ucs_username: "admin"
@@ -54,9 +54,9 @@ EXAMPLES = '''
 #Arguments object for the Managed Object in question
 def _argument_mo():
     return dict(
-				name=dict(required=True, type='str'),
-				vnic_ether_dn=dict(required=True ,type='str'),
-				default_net=dict(type='str', choices=['yes', 'no', 'true', 'false'])
+                name=dict(required=True, type='str'),
+                vnic_ether_dn=dict(required=True ,type='str'),
+                default_net=dict(type='str', choices=['yes', 'no', 'true', 'false'])
     )
 
 #Arguments object unique to the Ansible Module
@@ -106,9 +106,9 @@ def _get_mo_params(params):
 
 
 def setup_vnic_ether_if(server, module):
-	from ucsm_apis.server_profile.vnic_ether import vnic_ether_if_create
-    from ucsm_apis.server_profile.vnic_ether import vnic_ether_if_exists
-    from ucsm_apis.server_profile.vnic_ether import vnic_ether_if_delete
+    from ucsm_apis.service_profile.vnic_ether import vnic_ether_if_create
+    from ucsm_apis.service_profile.vnic_ether import vnic_ether_if_exists
+    from ucsm_apis.service_profile.vnic_ether import vnic_ether_if_delete
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)

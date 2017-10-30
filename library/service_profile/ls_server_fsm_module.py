@@ -44,7 +44,7 @@ EXAMPLES = '''
 #Arguments object for the Managed Object in question
 def _argument_mo():
     return dict(
-				ls_server_dn=dict(type='str')
+                ls_server_dn=dict(type='str')
     )
 
 #Arguments object unique to the Ansible Module
@@ -94,9 +94,9 @@ def _get_mo_params(params):
 
 
 def setup_ls_server_fsm(server, module):
-	from ucsm_apis.server_profile.ls_server_fsm import ls_server_fsm_create
-    from ucsm_apis.server_profile.ls_server_fsm import ls_server_fsm_exists
-    from ucsm_apis.server_profile.ls_server_fsm import ls_server_fsm_delete
+    from ucsm_apis.service_profile.ls_server_fsm import ls_server_fsm_create
+    from ucsm_apis.service_profile.ls_server_fsm import ls_server_fsm_exists
+    from ucsm_apis.service_profile.ls_server_fsm import ls_server_fsm_delete
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)

@@ -1,4 +1,4 @@
-:#!/usr/bin/env python
+#!/usr/bin/env python
 
 from ansible.module_utils.basic import *
 
@@ -183,9 +183,9 @@ def _get_mo_params(params):
 
 
 def setup_vnic_ether(server, module):
-    from ucsm_apis.server_profile.vnic_ether import vnic_ether_create
-    from ucsm_apis.server_profile.vnic_ether import vnic_ether_exists
-    from ucsm_apis.server_profile.vnic_ether import vnic_ether_delete
+    from ucsm_apis.service_profile.vnic_ether import vnic_ether_create
+    from ucsm_apis.service_profile.vnic_ether import vnic_ether_exists
+    from ucsm_apis.service_profile.vnic_ether import vnic_ether_delete
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)

@@ -23,45 +23,45 @@ options:
         required: false
         choices: ['present', 'absent']
         default: "present"
-	id:
-		version_added: "1.0(1e)"
+    id:
+        version_added: "1.0(1e)"
         description: boot policy name
         required: true
-		choices: ['1', '2', '3', '4']
-	ls_server_dn:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	fabric:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['A', 'B', 'any', 'NONE']
-	inst_type:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['auto', 'manual', 'policy']
-	placement:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['auto', 'physical']
-	select:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['all', 'assigned-only', 'dynamic-only', 'exclude-dynamic', 'exclude-unassigned',
-				  'exclude-usnic', 'unassigned-only', 'usnic-only']
-	share:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['different-transport', 'exclusive-only', 'exclusive-preferred', 'same-transport', 'shared']
-	transport:
-		version_added: "1.0(1e)"
-		description:
-		required: false
+        choices: ['1', '2', '3', '4']
+    ls_server_dn:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    fabric:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['A', 'B', 'any', 'NONE']
+    inst_type:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['auto', 'manual', 'policy']
+    placement:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['auto', 'physical']
+    select:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['all', 'assigned-only', 'dynamic-only', 'exclude-dynamic', 'exclude-unassigned',
+                  'exclude-usnic', 'unassigned-only', 'usnic-only']
+    share:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['different-transport', 'exclusive-only', 'exclusive-preferred', 'same-transport', 'shared']
+    transport:
+        version_added: "1.0(1e)"
+        description:
+        required: false
 requirements: ['ucsmsdk', 'ucsm_apis']
 author: "Cisco Systems Inc(ucs-python@cisco.com)"
 '''
@@ -73,9 +73,9 @@ EXAMPLES = '''
     id: "1"
     ls_server_dn: "org-root/ls-spt-test"
     fabric: "B"
-	inst_type: "manual"
-	select: "assigned-only"
-	share: "different-transport"
+    inst_type: "manual"
+    select: "assigned-only"
+    share: "different-transport"
     state: "present"
     ucs_ip: "192.168.1.1"
     ucs_username: "admin"
@@ -85,17 +85,17 @@ EXAMPLES = '''
 #Arguments object for the Managed Object in question
 def _argument_mo():
     return dict(
-				id=dict(required=True, type='str', choices=['1', '2', '3', '4']),
-				ls_server_dn=dict(required=True, type='str'),
-				fabric=dict(type='str', choices=['A', 'B', 'any', 'NONE'], default="NONE"),
-				inst_type=dict(type='str', choices=['auto', 'manual', 'policy'], default="manual"),
-				placement=dict(type='str', choices=['auto', 'physical'], default="physical"),
-				select=dict(type='str', choices=['all', 'assigned-only', 'dynamic-only', 'exclude-dynamic',
-							'exclude-unassigned', 'exclude-usnic', 'unassigned-only', 'usnic-only'],
-							default="all"),
-				share=dict(type='str', choices=['different-transport', 'exclusive-only', 
-								'exclusive-preferred', 'same-transport'], default="shared"),
-				transport=dict(type='str', default="ethernet")
+                id=dict(required=True, type='str', choices=['1', '2', '3', '4']),
+                ls_server_dn=dict(required=True, type='str'),
+                fabric=dict(type='str', choices=['A', 'B', 'any', 'NONE'], default="NONE"),
+                inst_type=dict(type='str', choices=['auto', 'manual', 'policy'], default="manual"),
+                placement=dict(type='str', choices=['auto', 'physical'], default="physical"),
+                select=dict(type='str', choices=['all', 'assigned-only', 'dynamic-only', 'exclude-dynamic',
+                            'exclude-unassigned', 'exclude-usnic', 'unassigned-only', 'usnic-only'],
+                            default="all"),
+                share=dict(type='str', choices=['different-transport', 'exclusive-only', 
+                                'exclusive-preferred', 'same-transport'], default="shared"),
+                transport=dict(type='str', default="ethernet")
     )
 
 #Arguments object unique to the Ansible Module
@@ -145,9 +145,9 @@ def _get_mo_params(params):
 
 
 def setup_fabric_vcon(server, module):
-	from ucsm_apis.server_profile.fabric_vcon import fabric_vcon_create
-    from ucsm_apis.server_profile.fabric_vcon import fabric_vcon_exists
-    from ucsm_apis.server_profile.fabric_vcon import fabric_vcon_delete
+    from ucsm_apis.service_profile.fabric_vcon import fabric_vcon_create
+    from ucsm_apis.service_profile.fabric_vcon import fabric_vcon_exists
+    from ucsm_apis.service_profile.fabric_vcon import fabric_vcon_delete
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)

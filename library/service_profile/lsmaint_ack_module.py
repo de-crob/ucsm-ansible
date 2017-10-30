@@ -26,27 +26,27 @@ options:
     ls_server_dn:
         description: ls_server_dn
         required: true
-	admin_state:
-		version_added: "1.0(1e)"
+    admin_state:
+        version_added: "1.0(1e)"
         description: 
         required: false
-		choices: ['trigger', 'triggered', 'trigger-immediate', 'user-ack', 'user-discard']
-	auto_delete:
-		version_added: "1.0(1e)"
+        choices: ['trigger', 'triggered', 'trigger-immediate', 'user-ack', 'user-discard']
+    auto_delete:
+        version_added: "1.0(1e)"
         description: 
         required: false
-		choices: ['yes','no','true','false']
-	descr:	
-		version_added: "1.0(1e)"
+        choices: ['yes','no','true','false']
+    descr:  
+        version_added: "1.0(1e)"
         description: 
         required: false
-	policy_owner:	
-		version_added: "1.0(1e)"
+    policy_owner:   
+        version_added: "1.0(1e)"
         description: 
         required: false
-		choices: ['local', 'pending-policy', 'policy']
-	scheduler:	
-		version_added: "1.0(1e)"
+        choices: ['local', 'pending-policy', 'policy']
+    scheduler:  
+        version_added: "1.0(1e)"
         description: 
         required: false
 requirements: ['ucsmsdk', 'ucsm_apis']
@@ -58,8 +58,8 @@ EXAMPLES = '''
 - name:
   lsmaint_ack_module:
     ls_server_dn: "org-root/ls-spt-test"
-	admin_state: "trigger"
-	auto_delete: "no"
+    admin_state: "trigger"
+    auto_delete: "no"
     state: "present"
     ucs_ip: "192.168.1.1"
     ucs_username: "admin"
@@ -69,13 +69,13 @@ EXAMPLES = '''
 #Arguments object for the Managed Object in question
 def _argument_mo():
     return dict(
-				ls_server_dn=dict(required=True, type='str'),
-				admin_state=dict(type='str', choices=['trigger', 'triggered', 'trigger-immediate',
-								 'user-ack', 'user-discard']),
-				auto_delete=dict(type='str', choices=['yes', 'no', 'true', 'false']),
-				descr=dict(type='str'),
-				policy_owner=dict(type='str', choices=['local', 'pending-policy', 'policy']),
-				scheduler=dict(type='str')
+                ls_server_dn=dict(required=True, type='str'),
+                admin_state=dict(type='str', choices=['trigger', 'triggered', 'trigger-immediate',
+                                 'user-ack', 'user-discard']),
+                auto_delete=dict(type='str', choices=['yes', 'no', 'true', 'false']),
+                descr=dict(type='str'),
+                policy_owner=dict(type='str', choices=['local', 'pending-policy', 'policy']),
+                scheduler=dict(type='str')
     )
 
 #Arguments object unique to the Ansible Module
@@ -125,9 +125,9 @@ def _get_mo_params(params):
 
 
 def setup_lsmaint_ack(server, module):
-	from ucsm_apis.server_profile.lsmaint_ack import lsmaint_ack_create
-    from ucsm_apis.server_profile.lsmaint_ack import lsmaint_ack_exists
-    from ucsm_apis.server_profile.lsmaint_ack import lsmaint_ack_delete
+    from ucsm_apis.service_profile.lsmaint_ack import lsmaint_ack_create
+    from ucsm_apis.service_profile.lsmaint_ack import lsmaint_ack_exists
+    from ucsm_apis.service_profile.lsmaint_ack import lsmaint_ack_delete
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)
