@@ -31,114 +31,114 @@ options:
         description: org dn
         required: false
         default: "org-root"
-	agent_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	bios_profile_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	boot_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	descr:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	dynamic_con_policy:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	ext_ip_pool_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	ext_ip_state:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['none', 'pooled', 'static']
-	host_fw_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	ident_pool_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	local_disk_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	maint_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	mgmt_access_policy:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	mgmt_fw_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	policy_owner:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['local', 'pending-policy', 'policy']
-		default: "local"
-	power_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	resolve_remote:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choice: ['yes', 'no']
-	scrub_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	sol_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	src_templ_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	stats_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		default: "default"
-	type:
-		version_added: "1.0(1e)"
-		description: should not be changed to make a service profile template
-		required: false
-		choices: ['initial-template', 'instance', 'updating-template']
-		default: "initial-template"
-	usr_lbl:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	uuid:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		default: "derived"
-	vcon_profile_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	vmedia_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
+    agent_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    bios_profile_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    boot_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    descr:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    dynamic_con_policy:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    ext_ip_pool_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    ext_ip_state:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['none', 'pooled', 'static']
+    host_fw_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    ident_pool_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    local_disk_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    maint_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    mgmt_access_policy:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    mgmt_fw_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    policy_owner:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['local', 'pending-policy', 'policy']
+        default: "local"
+    power_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    resolve_remote:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choice: ['yes', 'no']
+    scrub_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    sol_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    src_templ_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    stats_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        default: "default"
+    type:
+        version_added: "1.0(1e)"
+        description: should not be changed to make a service profile template
+        required: false
+        choices: ['initial-template', 'instance', 'updating-template']
+        default: "initial-template"
+    usr_lbl:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    uuid:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        default: "derived"
+    vcon_profile_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    vmedia_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
 requirements: ['ucsmsdk', 'ucsm_apis']
 author: "Cisco Systems Inc(ucs-python@cisco.com)"
 '''
@@ -150,8 +150,8 @@ EXAMPLES = '''
     name: "spt-test"
     org_dn: "org-root"
     boot_policy_name: "example_boot"
-	policy_owner: "local"
-	ident_pool_name: "ident_pool"
+    policy_owner: "local"
+    ident_pool_name: "ident_pool"
     state: "present"
     ucs_ip: "192.168.1.1"
     ucs_username: "admin"
@@ -161,34 +161,34 @@ EXAMPLES = '''
 #Arguments object for the Managed Object in question
 def _argument_mo():
     return dict(
-				name=dict(required=True, type='str'),
-				org_dn=dict(type='str', default="org-root"),
-				agent_policy_name=dict(type='str'),
-				bios_profile_name=dict(type='str'),
-				boot_policy_name=dict(type='str'),
-				descr=dict(type='str'),
-				dynamic_con_policy=dict(type='str'),
-				ext_ip_pool_name=dict(type='str'),
-				ext_ip_state=dict(type='str', choices=['none','pooled','static'],default="none"),
-				host_fw_policy_name=dict(type='str'),
-				ident_pool_name=dict(type='str'),
-				local_disk_policy_name=dict(type='str'),
-				maint_policy_name=dict(type='str'),
-				mgmt_access_policy=dict(type='str'),
-				mgmt_fw_policy_name=dict(type='str'),
-				policy_owner=dict(type='str', choices=['local', 'pending-policy', 'policy'], default="local"),
-				power_policy_name=dict(type='str'),
-				power_sync_policy=dict(type='str'),
-				resolve_remote=dict(type='str', choices=['yes','no'], default="no"),
-				scrub_policy_name=dict(type='str'),
-				sol_policy_name=dict(type='str'),
-				src_templ_name=dict(type='str'),
-				stats_policy_name=dict(type='str'),
-				type=dict(type='str', choices=['initial-template','instance','updating-template'], default="initial-template"),
-				usr_lbl=dict(type='str'),
-				uuid=dict(type='str', default="derived"),
-				vcon_profile_name=dict(type='str'),
-				vmedia_policy_name=dict(type='str')
+                name=dict(required=True, type='str'),
+                org_dn=dict(type='str', default="org-root"),
+                agent_policy_name=dict(type='str'),
+                bios_profile_name=dict(type='str'),
+                boot_policy_name=dict(type='str'),
+                descr=dict(type='str'),
+                dynamic_con_policy=dict(type='str'),
+                ext_ip_pool_name=dict(type='str'),
+                ext_ip_state=dict(type='str', choices=['none','pooled','static'],default="none"),
+                host_fw_policy_name=dict(type='str'),
+                ident_pool_name=dict(type='str'),
+                local_disk_policy_name=dict(type='str'),
+                maint_policy_name=dict(type='str'),
+                mgmt_access_policy=dict(type='str'),
+                mgmt_fw_policy_name=dict(type='str'),
+                policy_owner=dict(type='str', choices=['local', 'pending-policy', 'policy'], default="local"),
+                power_policy_name=dict(type='str'),
+                power_sync_policy=dict(type='str'),
+                resolve_remote=dict(type='str', choices=['yes','no'], default="no"),
+                scrub_policy_name=dict(type='str'),
+                sol_policy_name=dict(type='str'),
+                src_templ_name=dict(type='str'),
+                stats_policy_name=dict(type='str'),
+                type=dict(type='str', choices=['initial-template','instance','updating-template'], default="initial-template"),
+                usr_lbl=dict(type='str'),
+                uuid=dict(type='str', default="derived"),
+                vcon_profile_name=dict(type='str'),
+                vmedia_policy_name=dict(type='str')
     )
 
 #Arguments object unique to the Ansible Module
@@ -238,7 +238,7 @@ def _get_mo_params(params):
 
 
 def setup_ls_server(server, module):
-	from ucsm_apis.server_profile.ls_server import ls_server_create
+    from ucsm_apis.server_profile.ls_server import ls_server_create
     from ucsm_apis.server_profile.ls_server import ls_server_exists
     from ucsm_apis.server_profile.ls_server import ls_server_delete
 
