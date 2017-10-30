@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+:#!/usr/bin/env python
 
 from ansible.module_utils.basic import *
 
@@ -30,71 +30,71 @@ options:
     ls_server_dn:
         description: ls_server_dn
         required: true
-	adaptor_profile_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	addr:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	admin_host_port:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['1', '2', 'ANY', 'NONE']
-	admin_vcon:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['1', '2', '3', '4', 'any]
-	cdn_prop_in_sync:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['yes', 'no', 'true', 'false']
-	cdn_source:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['user-defined', 'vnic-name']
-	ident_pool_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	mtu:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	nw_ctrl_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	nw_templ_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	order:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	pin_to_group_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	qos_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	stats_policy_name:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-	switch_id:
-		version_added: "1.0(1e)"
-		description:
-		required: false
-		choices: ['A', 'B', 'A-B', 'B-A', 'NONE']
+    adaptor_profile_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    addr:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    admin_host_port:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['1', '2', 'ANY', 'NONE']
+    admin_vcon:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['1', '2', '3', '4', 'any]
+    cdn_prop_in_sync:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['yes', 'no', 'true', 'false']
+    cdn_source:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['user-defined', 'vnic-name']
+    ident_pool_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    mtu:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    nw_ctrl_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    nw_templ_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    order:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    pin_to_group_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    qos_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    stats_policy_name:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+    switch_id:
+        version_added: "1.0(1e)"
+        description:
+        required: false
+        choices: ['A', 'B', 'A-B', 'B-A', 'NONE']
 requirements: ['ucsmsdk', 'ucsm_apis']
 author: "Cisco Systems Inc(ucs-python@cisco.com)"
 '''
@@ -105,8 +105,8 @@ EXAMPLES = '''
   vnic_ether_module:
     name: "vnicE-test"
     ls_server_dn: "org-root/ls-spt-test"
-	mtu: "9000"
-	switch_id: "B"
+    mtu: "9000"
+    switch_id: "B"
     state: "present"
     ucs_ip: "192.168.1.1"
     ucs_username: "admin"
@@ -116,24 +116,24 @@ EXAMPLES = '''
 #Arguments object for the Managed Object in question
 def _argument_mo():
     return dict(
-				name=dict(required=True, type='str'),
-				ls_server_dn=dict(required=True, type='str'),
-				adaptor_profile_name=dict(type='str'),
-				addr=dict(type='str', default="derived"),
-				admin_cdn_name=dict(type='str'),
-				admin_host_port=dict(type='str', choices=['1','2','ANY','NONE'], default="ANY"),
-				admin_vcon=dict(type='str', choices=['1', '2', '3', '4', 'any'], default="any"),
-				cdn_prop_in_sync=dict(type='str', choices=['yes', 'no', 'true', 'false']),
-				cdn_source=dict(type='str', choices=['user-defined','vnic-name']),
-				ident_pool_name=dict(type='str'),
-				mtu=dict(type='str'),
-				nw_ctrl_policy_name=dict(type='str'),
-				nw_templ_name=dict(type='str'),
-				order=dict(type='str'),
-				pin_to_group_name=dict(type='str'),
-				qos_policy_name=dict(type='str'),
-				stats_policy_name=dict(type='str'),
-				switch_id=dict(type='str',choices=['A', 'B', 'A-B', 'B-A', 'NONE'])
+                name=dict(required=True, type='str'),
+                ls_server_dn=dict(required=True, type='str'),
+                adaptor_profile_name=dict(type='str'),
+                addr=dict(type='str', default="derived"),
+                admin_cdn_name=dict(type='str'),
+                admin_host_port=dict(type='str', choices=['1','2','ANY','NONE'], default="ANY"),
+                admin_vcon=dict(type='str', choices=['1', '2', '3', '4', 'any'], default="any"),
+                cdn_prop_in_sync=dict(type='str', choices=['yes', 'no', 'true', 'false']),
+                cdn_source=dict(type='str', choices=['user-defined','vnic-name']),
+                ident_pool_name=dict(type='str'),
+                mtu=dict(type='str'),
+                nw_ctrl_policy_name=dict(type='str'),
+                nw_templ_name=dict(type='str'),
+                order=dict(type='str'),
+                pin_to_group_name=dict(type='str'),
+                qos_policy_name=dict(type='str'),
+                stats_policy_name=dict(type='str'),
+                switch_id=dict(type='str',choices=['A', 'B', 'A-B', 'B-A', 'NONE'])
     )
 
 #Arguments object unique to the Ansible Module
@@ -183,7 +183,7 @@ def _get_mo_params(params):
 
 
 def setup_vnic_ether(server, module):
-	from ucsm_apis.server_profile.vnic_ether import vnic_ether_create
+    from ucsm_apis.server_profile.vnic_ether import vnic_ether_create
     from ucsm_apis.server_profile.vnic_ether import vnic_ether_exists
     from ucsm_apis.server_profile.vnic_ether import vnic_ether_delete
 
