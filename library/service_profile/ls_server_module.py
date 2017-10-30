@@ -239,9 +239,9 @@ def _get_mo_params(params):
 
 
 def setup_ls_server(server, module):
-    from ucsm_apis.server_profile.ls_server import ls_server_create
-    from ucsm_apis.server_profile.ls_server import ls_server_exists
-    from ucsm_apis.server_profile.ls_server import ls_server_delete
+    from ucsm_apis.service_profile.ls_server import ls_server_create
+    from ucsm_apis.service_profile.ls_server import ls_server_exists
+    from ucsm_apis.service_profile.ls_server import ls_server_delete
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)
