@@ -139,7 +139,7 @@ def _argument_mo():
                 max_data_field_size=dict(type='str'),
                 nw_templ_name=dict(type='str'),
                 order=dict(type='str'),
-                pers_bindr=dict(type='str', choices=['enabled', 'disabled'], default="disabled"),
+                pers_bind=dict(type='str', choices=['enabled', 'disabled'], default="disabled"),
                 pers_bind_clear=dict(type='str', choices=['yes', 'no', 'true', 'false'], default="no"),
                 pin_to_group_name=dict(type='str'),
                 qos_policy_name=dict(type='str'),

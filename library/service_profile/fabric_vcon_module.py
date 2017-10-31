@@ -94,7 +94,7 @@ def _argument_mo():
                             'exclude-unassigned', 'exclude-usnic', 'unassigned-only', 'usnic-only'],
                             default="all"),
                 share=dict(type='str', choices=['different-transport', 'exclusive-only', 
-                                'exclusive-preferred', 'same-transport'], default="shared"),
+                                'exclusive-preferred', 'same-transport', 'shared'], default="shared"),
                 transport=dict(type='str', default="ethernet")
     )
 
