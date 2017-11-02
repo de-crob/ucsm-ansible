@@ -150,7 +150,7 @@ def setup(server, module):
     err = False
 
     try:
-        result["changed"] = setup_ls_server_fsm(server, module)
+        result["changed"] = setup_lsmaint_ack(server, module)
     except Exception as e:
         err = True
         result["msg"] = "setup error: %s " % str(e)
