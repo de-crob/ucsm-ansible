@@ -71,7 +71,7 @@ def _argument_mo():
     return dict(
                 ls_server_dn=dict(required=True, type='str'),
                 admin_state=dict(type='str', choices=['trigger', 'triggered', 'trigger-immediate',
-                                 'user-ack', 'user-discard']),
+                                 'untriggered','user-ack', 'user-discard']),
                 auto_delete=dict(type='str', choices=['yes', 'no', 'true', 'false']),
                 descr=dict(type='str'),
                 policy_owner=dict(type='str', choices=['local', 'pending-policy', 'policy']),
