@@ -121,7 +121,7 @@ def setup_ls_power(server, module):
     else:
         if module.check_mode or not exists:
             return exists
-        ls_power_delete(server, mo.name, args_mo['org_dn'])
+        ls_power_delete(server, args_mo['ls_server_dn'])
 
     return True
 
