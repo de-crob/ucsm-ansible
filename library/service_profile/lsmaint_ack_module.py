@@ -131,16 +131,16 @@ def setup_lsmaint_ack(server, module):
 
     ansible = module.params
     args_mo  =  _get_mo_params(ansible)
-    exists, mo = ls_server_fsm_exists(handle=server, **args_mo)
+    exists, mo = lsmaint_ack_exists(handle=server, **args_mo)
 
     if ansible["state"] == "present":
         if module.check_mode or exists:
             return not exists
-        ls_server_fsm_create(handle=server, **args_mo)
+        lsmaint_ack_create(handle=server, **args_mo)
     else:
         if module.check_mode or not exists:
             return exists
-        ls_server_fsm_delete(server, mo.name, args_mo['org_dn'])
+        lsmaint_ack_fsm_delete(server, mo.name, args_mo['org_dn'])
 
     return True
 
