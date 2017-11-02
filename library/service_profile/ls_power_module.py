@@ -114,7 +114,7 @@ def setup_ls_power(server, module):
     args_mo  =  _get_mo_params(ansible)
     exists, mo = ls_power_exists(handle=server, **args_mo)
 
-    if ansible["state"] == "present":
+    if ansible["ansi_state"] == "present":
         if module.check_mode or exists:
             return not exists
         ls_power_create(handle=server, **args_mo)
