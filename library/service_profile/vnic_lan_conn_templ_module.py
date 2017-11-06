@@ -107,7 +107,7 @@ def _argument_mo():
                 qos_policy_name=dict(type='str'),
                 redundancy_pair_type=dict(type='str', choices=['none', 'primary', 'secondary']),
                 stats_policy_name=dict(type='str'),
-                switch_id=dict(type='str',choices=['A', 'B', 'A-B', 'B-A', 'NONE'])
+                switch_id=dict(type='str',choices=['A', 'B', 'A-B', 'B-A', 'NONE']),
                 target=dict(type='str'),
                 templ_type=dict(type='str', choices=['initial-template', 'updating-template'])
     )
